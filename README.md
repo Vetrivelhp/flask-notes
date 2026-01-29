@@ -27,6 +27,7 @@ This app allows users to create, view, and delete notes with a smooth UI.
 
 ## 📂 Project Structure
 
+```text
 notes-app/
 │
 ├── app.py
@@ -45,7 +46,7 @@ notes-app/
 │ └── sign.html
 │
 └── .gitignore
-
+```	
 
 ---
 
@@ -58,14 +59,14 @@ git clone https://github.com/Vetrivelhp/flask-notes.git
 cd notes-app-flask
 ```
 
----
+## 2️⃣ Install dependencies
 
-##2️⃣ Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
 ## 3️⃣ Run the application
+
 ```bash
 python app.py
 ```
