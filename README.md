@@ -56,42 +56,55 @@ notes-app/
 ```bash
 git clone https://github.com/Vetrivelhp/flask-notes.git
 cd notes-app-flask
+```
 
-2️⃣ Install dependencies
+---
+
+##2️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
-3️⃣ Run the application
+## 3️⃣ Run the application
+```bash
 python app.py
-
+```
 
 Open your browser and go to:
-
+```bash
 http://127.0.0.1:5000
+```
 
-🧠 What This Project Demonstrates
+---
 
-REST-style API design with Flask
+## 🧠 What This Project Demonstrates
 
-DOM manipulation using vanilla JavaScript
+- REST-style API design with Flask
 
-Event handling and propagation control
+- DOM manipulation using vanilla JavaScript
 
-Responsive layout using CSS Grid
+- Event handling and propagation control
 
-Clean separation of frontend and backend logic
+- Responsive layout using CSS Grid
 
-🔮 Future Improvements
+- Clean separation of frontend and backend logic
 
-Edit existing notes
+---
 
-Search and filter notes
+## 🔮 Future Improvements
 
-User authentication improvements
+- Edit existing notes
 
-Rich text editor for notes
+- Search and filter notes
 
-Dark mode
+- User authentication improvements
 
-📜 License
+- Rich text editor for notes
+
+- Dark mode
+
+---
+
+## 📜 License
 
 This project is open-source and available under the MIT License.
