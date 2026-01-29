@@ -1,0 +1,278 @@
+html,body{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+	align-items: center;
+	font-family: Tahoma;
+}
+
+html{
+	margin: 10px;
+	padding: 5px;
+;
+}
+
+h2{
+	font-size: 35px;
+}
+h5{
+	text-align: center;
+}
+
+form{
+	display: flex;
+	margin: 10px;	
+}
+
+label{
+	padding-top: 60px;
+	padding-bottom: 10px;
+	font-family: "Segoe UI";
+	font-weight: bold;
+	
+}
+
+button{
+	position: relative;
+	margin-top: 14px;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 100%;
+	padding: 11px 20px;
+	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+	font-family: "Segoe UI";
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	background-color: rgb(40,100,169);
+	transition: transform 0.02s linear;
+	transform-origin: center;
+	z-index: 1;
+}
+
+button::after{
+	content: "";
+	position: absolute;
+	top: -4px;
+	left: -1px;
+	right: -1px;
+	bottom: -4px;
+	border: 2px solid rgb(40,100,169);
+	border-radius: 8px;
+	opacity: 0;
+	transition: opacity 0.15s ease, transform 0.15s ease;
+	pointer-events: none;
+	z-index: 0;
+}
+
+button:hover::after{
+	opacity: 1;
+	transform: scale(1.03);
+}
+
+button:active{
+	transform: scale(0.96);
+	transition: transform 0s;
+	background-color: rgb(25,65,110);
+}
+
+#delBtn::after{
+	content: "";
+	position: absolute;
+	top: -4px;
+	left: -1px;
+	right: -1px;
+	bottom: -4px;
+	border: 2px solid #f71919;
+	border-radius: 8px;
+	opacity: 0;
+	transition: opacity 0.15s ease, transform 0.15s ease;
+	pointer-events: none;
+	z-index: 0;
+}
+
+#delBtn:hover::after{
+	opacity: 1;
+	transform: scale(1.03);
+}
+
+input[type=text],[type=password],[type=textarea],[type=mail]{
+	width: 100%;
+	padding: 8px 20px;
+	margin: 15px 0px;
+	display: flex;
+	border: 1px solid;
+	border-radius: 2px;
+	box-sizing: border-box;
+	font-family: Tahoma;
+	font-size: 18px;
+}
+
+#noteForm{
+	width: 100%;
+	min-height: 80vh;
+	display: flex;
+	justify-content: center;
+}
+
+#noteForm fieldset{
+	width: 100%;
+	max-width: auto;  
+	border: none;
+	padding: 10px;
+}
+
+#noteForm textarea{
+	margin-top: 10px;
+	
+}
+
+#cnn{
+	text-align: center;
+}
+
+#title{
+	font-size: 26px;
+	font-weight: bold;
+	padding: 14px;
+}
+
+#content{
+	width: 96.5%;
+	min-height: 35vh;    
+	font-size: 18px;
+	line-height: 1.6;
+	padding: 20px;
+	resize: vertical;
+	font-family: Tahoma;
+}
+
+small{
+	font-family: Arial;
+	font-style: italic;
+	color: #737475;
+}
+
+body:has(#noteForm){
+	align-items: stretch;
+}
+
+
+fieldset{
+	padding: 20px;
+}
+
+.notes-grid{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 20px;
+	width: 100%;
+	max-width: 1200px;
+	padding: 20px;
+}
+
+.note-card{
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 16px;
+	cursor: pointer;
+	background: white;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.note-card:hover{
+	transform: translateY(-3px);
+	box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.note-preview{
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #333;
+}
+
+.full-note{
+	max-width: 800px;
+	margin: 40px auto;
+	padding: 20px;
+}
+
+.full-note h1{
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+
+.full-note p{
+	font-size: 18px;
+	line-height: 1.7;
+	white-space: pre-wrap;
+}
+
+.note-card.removing{
+	opacity: 0;
+	transform: scale(0.95);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.note-card{
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.note-card:hover{
+	transform: translateY(-3px);
+	box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+
+
+.full-note{
+	animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.note-card.new{
+	animation: popIn 0.3s ease;
+}
+
+@keyframes popIn{
+	from{
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.note-card{
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.note-card.removing{
+	opacity: 0;
+	transform: scale(0.95);
+}
+
+

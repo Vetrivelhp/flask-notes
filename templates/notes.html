@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Notes</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+		<meta charset="UTF-8">
+	</head>
+
+	<body>
+		<div>
+			<form method="POST">
+				<button name = "note_button" value = "create">+ Create Note</button>
+			</form>			
+		</div>
+
+		<div>
+			{% if notes %}
+			<div class="notes-grid">
+				{% for note in notes %}
+					
+					<div id="notes_view" style="border:1px solid:#ccc padding:10px margin:10px">
+						<div id="note-{{ note.id }}" class="note-card" onclick="openNote({{ note.id }})">	
+							<h3>{{ note.n_title }}</h3>
+							<p class="note-preview">{{ note.n_content }}</p>
+							<small>Created at: {{ note.created_at.strftime("%d %b %Y, %I:%M %p") }}</small>
+							<button onClick="deleteNote(event, {{ note.id }} )" id="delBtn" style="background-color:#f71919;">Delete</button>
+						</div>
+					</div>	
+				{% endfor %}
+			</div>	
+			{% endif %}
+		</div>
+		
+		<div id="notes"></div>
+
+		<script>
+			function deleteNote(e, id){
+				e.stopPropagation();
+
+				const card = document.getElementById(`note-${id}`);
+
+				// animate first
+				card.classList.add("removing");
+
+				// remove after animation
+				setTimeout(() => {
+					fetch(`/api/delete/${id}`, { method: "DELETE" })
+					.then(res => res.json())
+					.then(data => {
+						if(data.success){
+							card.remove();
+						}
+					});
+				}, 200);
+			}
+			
+
+			
+			function openNote(id){
+				window.location.href = `/note/${id}`;
+			}
+
+		</script>
+
+	</body>
+</html>

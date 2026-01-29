@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Note</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+	<div class="full-note">
+		<h1 id="noteTitle"></h1>
+		<p id="noteContent"></p>
+		<small id="noteTime"></small>
+	</div>
+
+	<script>
+		const noteId = {{ note_id }};
+
+		fetch(`/api/note/${noteId}`)
+		.then(res => res.json())
+		.then(data => {
+			document.getElementById("noteTitle").innerText = data.title;
+			document.getElementById("noteContent").innerText = data.content;
+			document.getElementById("noteTime").innerText = data.time;
+		});
+	</script>
+</body>
+</html>

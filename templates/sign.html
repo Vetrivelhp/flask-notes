@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sign Up</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+	
+	<body>
+		<div>
+			<h2>Sign Up</h2>
+		</div>
+	<div>
+			<form method = "POST">
+				<fieldset>
+					<label for="email">Email</label>
+					<input type="mail" id ="email_id" name="email" required="required">
+					
+					<label for="user_name">Create a Username</label>
+					<input type="text" id ="user_name" name="user" required="required">
+					
+					<label for="password">Create a Password</label>
+					<input type="password" id ="password" name="pass1" required="required">
+					
+					<label for="confirm_key">Confirm Password</label>
+					<input type="text" id ="confirm_key" name="pass2" required="required">
+					
+					<button>Sign Up</button>
+
+					
+					<p>Already have an account? Please <a href="login">Login</a> here.</p>
+	
+			</fieldset>
+			</form>
+		</div>
+	</body>
+</html>
