@@ -29,7 +29,7 @@ SessionLocal = sessionmaker(bind=engine)
 db = SessionLocal()
 
 app = Flask(__name__)
-app.secret_key = "kkk"
+app.secret_key = os.getenv(key)
 
 @app.route('/', methods = ['GET','POST'])
 def home():
